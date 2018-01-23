@@ -96,7 +96,7 @@ CREATE SEQUENCE sab_comments_SEQ;
 DROP TABLE sab_reviews;
 CREATE TABLE sab_reviews(
 	reviewNum	NUMBER,
-	isbn13		NUMBER,
+	isbn13		NUMBER(13),
 	memberNum	NUMBER,
 	title		VARCHAR2(150) CONSTRAINT sab_reviews_NN_title NOT NULL,
 	content		VARCHAR2(3000) CONSTRAINT sab_reviews_NN_content NOT NULL,
@@ -176,7 +176,7 @@ DROP TABLE sab_readingHistories;
 CREATE TABLE sab_readingHistories(
 	historyNum	NUMBER,
 	memberNum	NUMBER,
-	isbn13		NUMBER,
+	isbn13		NUMBER(13),
 	CONSTRAINT sab_readHis_PK PRIMARY KEY(historyNum),
 	CONSTRAINT srh_sm_FK	FOREIGN KEY(memberNum)
 							REFERENCES sab_members(memberNum) ON DELETE CASCADE,
