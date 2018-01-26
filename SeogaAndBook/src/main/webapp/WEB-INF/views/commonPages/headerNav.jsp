@@ -17,14 +17,16 @@
 						<span class="icon-bar"></span> 
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="./">서가 앤 북</a>
+					<a class="navbar-brand" href="${myContextPath}">서가 앤 북</a>
 				</div>
 				
 				<div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav">
-						<li><a href="#">도서 등록</a></li>
-						<li><a href="#about">서평 모음</a></li>
-						<li><a href="#contact">질문 게시판</a></li>
+						
+						<li id="headerNav-author"><a href="${myContextPath}/author/authorHome">작가</a></li>
+						<li id="headerNav-book"><a href="${myContextPath}/book/bookHome">도서</a></li>
+						<li id="headerNav-review"><a href="${myContextPath}/review/reviewHome">서평</a></li>
+						<li id="headerNav-question"><a href="${myContextPath}/question/questionHome">질문</a></li>
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" 
 								role="button" aria-expanded="false">

@@ -31,11 +31,46 @@
 	<body>
 		
 		<header>
-			<jsp:include page="<c:url value='commonPage/headerNav.jsp'/>" />
+			<jsp:include page="../commonPages/headerNav.jsp" />
 		</header>
+		
+		
 		
 		<!-- Include all compiled plugins (below), or include individual files as needed -->
 		<script src="<c:url value='/resources/bootstrap/js/bootstrap.min.js'/>"></script>
 		
+		<!-- Custom javascript -->
+		<script type="text/javascript" src="<c:url value='/resources/js/bookEnter.js'/>"></script>
+		
 	</body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
