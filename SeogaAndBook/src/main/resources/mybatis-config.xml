@@ -19,6 +19,6 @@
 	</typeAliases>
 	<mappers>
 		<mapper resource="memberMapper.xml" />
-		
+		<mapper resource="bookMapper.xml" />
 	</mappers>
 </configuration>
