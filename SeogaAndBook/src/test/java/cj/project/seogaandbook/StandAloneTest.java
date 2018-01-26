@@ -12,6 +12,8 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
+import cj.project.seogaandbook.controller.HomeController;
+
 public class StandAloneTest {
 
 	private MockMvc mockMvc;

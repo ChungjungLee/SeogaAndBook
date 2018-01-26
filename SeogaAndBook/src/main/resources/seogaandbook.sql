@@ -5,7 +5,6 @@ CREATE TABLE sab_members(
 	id			VARCHAR2(10),
 	password	VARCHAR2(10) CONSTRAINT sab_members_NN_password NOT NULL,
 	email		VARCHAR2(30),
-	phone		VARCHAR2(11) CONSTRAINT sab_members_NN_phone NOT NULL,
 	CONSTRAINT sab_members_PK 			PRIMARY KEY(memberNum),
 	CONSTRAINT sab_members_UK_id 		UNIQUE(id),
 	CONSTRAINT sab_members_UK_email 	UNIQUE(email)

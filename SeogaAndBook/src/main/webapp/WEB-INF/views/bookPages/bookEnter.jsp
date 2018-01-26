@@ -10,7 +10,7 @@
 		
 		<link rel="icon" href="<c:url value='/resources/image/favicon.ico'/>">
 		
-		<title>서가 앤 북</title>
+		<title>서가 앤 북 - 책 등록</title>
 		
 		<!-- jQuery -->
 		<script type="text/javascript" src="<c:url value='/resources/js/jquery-3.2.1.js'/>"></script>
@@ -19,7 +19,7 @@
 		<link href="<c:url value='/resources/bootstrap/css/bootstrap.css'/>" rel="stylesheet">
 		
 		<!-- Custom CSS -->
-		<link href="<c:url value='/resources/css/memberJoin.css'/>" rel="stylesheet">
+		<link href="<c:url value='/resources/css/bookEnter.css'/>" rel="stylesheet">
 		
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -34,33 +34,8 @@
 			<jsp:include page="<c:url value='commonPage/headerNav.jsp'/>" />
 		</header>
 		
-		
 		<!-- Include all compiled plugins (below), or include individual files as needed -->
 		<script src="<c:url value='/resources/bootstrap/js/bootstrap.min.js'/>"></script>
 		
 	</body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

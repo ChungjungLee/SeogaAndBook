@@ -12,6 +12,9 @@
 		
 		<title>서가 앤 북 - 회원가입</title>
 		
+		<!-- jQuery -->
+		<script type="text/javascript" src="<c:url value='/resources/js/jquery-3.2.1.js'/>"></script>
+		
 		<!-- Bootstrap -->
 		<link href="<c:url value='/resources/bootstrap/css/bootstrap.css'/>" rel="stylesheet">
 		
@@ -34,22 +37,21 @@
 					<div class="inner cover">
 						<h1 class="cover-heading">회원 가입</h1>
 						
-						<form class="form-signin" id="signin-form" data-toggle="validator">
-							
+						<form class="form-signin" id="signin-form">
 							<div class="form-group has-feedback">
 								<label for="inputId" class="sr-only">아이디</label> 
-								<input type="text" id="inputId" pattern="^[_A-z0-9]" 
-									class="form-control" placeholder="아이디" 
+								<input type="text" id="inputId" name="id" data-remote="checkIdDuplicateNew"
+									class="form-control" placeholder="아이디" pattern="^[_A-z0-9]{1,}$"
 									required>
 								<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
 								<span class="help-block">(*) 아이디는 영어와 숫자로만!</span>
-								<div class="help-block with-errors"></div>
+								<div id="help-block-id" class="help-block with-errors"></div>
 							</div>
 							
 							<div class="form-group has-feedback">
 								<label for="inputPassword" class="sr-only">비밀번호</label>
-								<input type="password" id="inputPassword" pattern="^[_A-z0-9]" 
-									class="form-control has-warning" placeholder="비밀번호" 
+								<input type="password" id="inputPassword" name="password" pattern="^[_A-z0-9]{1,}$" 
+									class="form-control" placeholder="비밀번호" 
 									required>
 								<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
 								<span class="help-block">(*) 비밀번호는 영어와 숫자로만!</span>
@@ -65,22 +67,22 @@
 								<div class="help-block with-errors"></div>
 							</div>
 							
-							<div class="form-group has-success has-feedback">
+							<div class="form-group has-feedback">
 								<label for="inputEmail" class="sr-only">이메일</label> 
-								<input type="email" id="inputEmail" class="form-control"
+								<input type="email" id="inputEmail" name="email" class="form-control"
 									placeholder="이메일 주소" data-error="잘못된 이메일 주소입니다." required>
 								<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
 								<div class="help-block with-errors"></div>
 							</div>
 							
-							<button class="btn btn-lg btn-primary" type="submit">
-								회원 가입
-							</button>
-							
+							<div class="form-group">
+								<button class="btn btn-lg btn-primary" type="submit">
+									회원 가입
+								</button>
+							</div>
 							<a href="../" class="btn btn-lg btn-primary">
 								돌아가기
 							</a>
-							
 						</form>
 					</div>
 					
@@ -101,15 +103,11 @@
 			</div>
 		</div>
 		
-		
 		<!-- Include all compiled plugins (below), or include individual files as needed -->
 		<script src="<c:url value='/resources/bootstrap/js/bootstrap.min.js'/>"></script>
 		
-		<!-- jQuery -->
-		<script type="text/javascript" src="<c:url value='/resources/js/jquery-3.2.1.js'/>"></script>
-		
 		<!-- Bootstrap Validator -->
-		<script type="text/javascript" src="<c:url value='/resources/js/validator.min.js'/>"></script>
+		<script type="text/javascript" src="<c:url value='/resources/js/validator.js'/>"></script>
 		
 		<!-- Custom javascript -->
 		<script type="text/javascript" src="<c:url value='/resources/js/memberJoin.js'/>"></script>

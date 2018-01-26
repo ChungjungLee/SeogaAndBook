@@ -5,16 +5,14 @@ public class Member {
 	private String id;
 	private String password;
 	private String email;
-	private String phone;
 	
 	public Member() {}
 
-	public Member(int memberNum, String id, String password, String email, String phone) {
+	public Member(int memberNum, String id, String password, String email) {
 		this.memberNum = memberNum;
 		this.id = id;
 		this.password = password;
 		this.email = email;
-		this.phone = phone;
 	}
 
 	public int getMemberNum() {
@@ -41,17 +39,11 @@ public class Member {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getPhone() {
-		return phone;
-	}
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
 	
 	@Override
 	public String toString() {
-		return "Member [memberNum=" + memberNum + ", id=" + id + ", password=" + password + ", email=" + email
-				+ ", phone=" + phone + "]";
+		return "Member [memberNum=" + memberNum + ", id=" + id + 
+				", password=" + password + ", email=" + email + "]";
 	}
 	
 }

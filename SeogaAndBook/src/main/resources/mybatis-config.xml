@@ -4,11 +4,21 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
-		<!-- <typeAlias type="global.sesoc.web8.vo.Attachment" alias="Attachment" />  -->
+		<typeAlias type="cj.project.seogaandbook.vo.Answer" alias="Answer" />
+		<typeAlias type="cj.project.seogaandbook.vo.Author" alias="Author" />
+		<typeAlias type="cj.project.seogaandbook.vo.Book" alias="Book" />
+		<typeAlias type="cj.project.seogaandbook.vo.Category" alias="Category" />
+		<typeAlias type="cj.project.seogaandbook.vo.Comment" alias="Comment" />
+		<typeAlias type="cj.project.seogaandbook.vo.Member" alias="Member" />
+		<typeAlias type="cj.project.seogaandbook.vo.Publisher" alias="Publisher" />
+		<typeAlias type="cj.project.seogaandbook.vo.Question" alias="Question" />
+		<typeAlias type="cj.project.seogaandbook.vo.ReadingHistory" alias="ReadingHistory" />
+		<typeAlias type="cj.project.seogaandbook.vo.Reply" alias="Reply" />
+		<typeAlias type="cj.project.seogaandbook.vo.Review" alias="Review" />
 		
 	</typeAliases>
 	<mappers>
-		<!-- <mapper resource="attachmentMapper.xml" /> -->
+		<mapper resource="memberMapper.xml" />
 		
 	</mappers>
 </configuration>

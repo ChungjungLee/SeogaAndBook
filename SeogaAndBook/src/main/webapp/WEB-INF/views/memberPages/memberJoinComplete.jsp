@@ -10,7 +10,7 @@
 		
 		<link rel="icon" href="<c:url value='/resources/image/favicon.ico'/>">
 		
-		<title>서가 앤 북</title>
+		<title>서가 앤 북 - 회원가입</title>
 		
 		<!-- jQuery -->
 		<script type="text/javascript" src="<c:url value='/resources/js/jquery-3.2.1.js'/>"></script>
@@ -27,40 +27,49 @@
 			<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
+		
 	</head>
 	<body>
 		
-		<header>
-			<jsp:include page="<c:url value='commonPage/headerNav.jsp'/>" />
-		</header>
-		
+		<div class="site-wrapper">
+			<div class="site-wrapper-inner">
+				<div class="cover-container">
+					<div class="inner cover">
+						<h1 class="cover-heading">회원 가입을 축하드립니다.</h1>
+						
+						<a href="/" class="btn btn-lg btn-primary">
+							로그인
+						</a>
+						
+						
+						
+					</div>
+					
+					<div class="mastfoot">
+						<div class="inner">
+							<p>
+								Constructed by 
+								<a href="https://github.com/chunglee-test/SeogaAndBook">Chungjung Lee</a> 
+							</p>
+							<p>
+								Cover template for <a href="http://getbootstrap.com">Bootstrap</a>,
+								by <a href="https://twitter.com/mdo">@mdo</a>.
+							</p>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
 		
 		<!-- Include all compiled plugins (below), or include individual files as needed -->
 		<script src="<c:url value='/resources/bootstrap/js/bootstrap.min.js'/>"></script>
 		
+		<!-- Bootstrap Validator -->
+		<script type="text/javascript" src="<c:url value='/resources/js/validator.js'/>"></script>
+		
+		<!-- Custom javascript -->
+		<script type="text/javascript" src="<c:url value='/resources/js/memberJoin.js'/>"></script>
+		
 	</body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
