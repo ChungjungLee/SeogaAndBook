@@ -21,7 +21,6 @@
 		<!-- jQuery -->
 		<script type="text/javascript" src="<c:url value='/resources/js/jquery-3.2.1.js'/>"></script>
 		
-		
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 		<!--[if lt IE 9]>
@@ -39,7 +38,7 @@
 				
 					<div class="masthead clearfix">
 						<div class="inner">
-							<h3 class="masthead-brand">서가 앤 북</h3>
+							<h3 class="masthead-brand"><a href="./">서가 앤 북</a></h3>
 							<nav>
 								<ul class="nav masthead-nav">
 									<li class="active"><a href="home">메인으로</a></li>
@@ -56,27 +55,28 @@
 							<a href="member/join">회원으로 등록</a>하시면 서가 앤 북을 이용하실 수 있습니다.
 						</h5>
 						
-						<form class="form-signin">
+						<form class="form-signin" id="signin-form">
 							<label for="inputId" class="sr-only">아이디</label> 
-							<input type="text" id="inputId" class="form-control"
+							<input type="text" id="inputId" name="id" class="form-control"
 								placeholder="아이디" required autofocus>
 							
 							<label for="inputPassword" class="sr-only">비밀번호</label>
-							<input type="password" id="inputPassword" class="form-control"
+							<input type="password" id="inputPassword" name="password" class="form-control"
 								placeholder="비밀번호" required>
 							
-							<!-- 
+							<c:if test="${errorMsg != null}">
+								<label>(!) ${errorMsg}</label>
+							</c:if>
+							
 							<div class="checkbox">
 								<label> <input type="checkbox" value="remember-me">
 									로그인 유지
 								</label>
 							</div>
-							 -->
 							
 							<button class="btn btn-lg btn-primary" type="submit">
 								로그인
 							</button>
-							
 						</form>
 					</div>
 	
@@ -99,10 +99,11 @@
 			
 		</div>
 	
-		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 		<!-- Include all compiled plugins (below), or include individual files as needed -->
 		<script src="<c:url value='/resources/bootstrap/js/bootstrap.min.js'/>"></script>
+		
+		<!-- Custom javascript -->
+		<script type="text/javascript" src="<c:url value='/resources/js/welcome.js'/>"></script>
 		
 	</body>
 </html>

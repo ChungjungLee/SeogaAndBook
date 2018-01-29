@@ -8,19 +8,11 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
-		<link rel="icon" href="<c:url value='/resources/image/favicon.ico'/>">
-		
-		<title>서가 앤 북 - 책 등록</title>
-		
-		<!-- jQuery -->
-		<script type="text/javascript" src="<c:url value='/resources/js/jquery-3.2.1.js'/>"></script>
+		<title>title</title>
 		
 		<!-- Bootstrap -->
 		<link href="<c:url value='/resources/bootstrap/css/bootstrap.css'/>" rel="stylesheet">
-		
-		<!-- Custom CSS -->
-		<link href="<c:url value='/resources/css/bookEnter.css'/>" rel="stylesheet">
-		
+
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 		<!--[if lt IE 9]>
@@ -30,48 +22,12 @@
 	</head>
 	<body>
 		
-		<header>
-			<jsp:include page="../commonPages/headerNav.jsp" />
-			<jsp:include page="../commonPages/topBanner.jsp" />
-		</header>
+		<h1>잘못된 접근입니다.</h1>
 		
-		
-		
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 		<!-- Include all compiled plugins (below), or include individual files as needed -->
 		<script src="<c:url value='/resources/bootstrap/js/bootstrap.min.js'/>"></script>
 		
-		<!-- Custom javascript -->
-		<script type="text/javascript" src="<c:url value='/resources/js/bookEnter.js'/>"></script>
-		
 	</body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

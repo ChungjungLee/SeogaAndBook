@@ -10,7 +10,7 @@
 		
 		<link rel="icon" href="<c:url value='/resources/image/favicon.ico'/>">
 		
-		<title>서가 앤 북 - 회원가입</title>
+		<title>서가 앤 북 - 회원수정</title>
 		
 		<!-- jQuery -->
 		<script type="text/javascript" src="<c:url value='/resources/js/jquery-3.2.1.js'/>"></script>
@@ -19,7 +19,7 @@
 		<link href="<c:url value='/resources/bootstrap/css/bootstrap.css'/>" rel="stylesheet">
 		
 		<!-- Custom CSS -->
-		<link href="<c:url value='/resources/css/memberJoin.css'/>" rel="stylesheet">
+		<link href="<c:url value='/resources/css/memberUpdate.css'/>" rel="stylesheet">
 		
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -35,23 +35,23 @@
 			<div class="site-wrapper-inner">
 				<div class="cover-container">
 					<div class="inner cover">
-						<h1 class="cover-heading">회원 가입</h1>
+						<h1 class="cover-heading">회원 정보 수정</h1>
 						
-						<form class="form-signin" id="signin-form" data-toggle="validator">
+						<form class="form-signin" id="update-form" data-toggle="validator">
 							<div class="form-group has-feedback">
 								<label for="inputId" class="sr-only">아이디</label> 
-								<input type="text" id="inputId" name="id" data-remote="checkIdDuplicate"
+								<input type="text" id="inputId" name="id"
 									class="form-control" placeholder="아이디" pattern="^[_A-z0-9]{1,}$"
-									required>
+									value="${member.id}" disabled required>
 								<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
 								<span class="help-block">(*) 아이디는 영어와 숫자로만!</span>
 								<div id="help-block-id" class="help-block with-errors"></div>
 							</div>
 							
 							<div class="form-group has-feedback">
-								<label for="inputPassword" class="sr-only">비밀번호</label>
+								<label for="inputPassword" class="sr-only">새 비밀번호</label>
 								<input type="password" id="inputPassword" name="password" pattern="^[_A-z0-9]{1,}$" 
-									class="form-control" placeholder="비밀번호" 
+									class="form-control" placeholder="새 비밀번호" 
 									required>
 								<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
 								<span class="help-block">(*) 비밀번호는 영어와 숫자로만!</span>
@@ -59,9 +59,9 @@
 							</div>
 							
 							<div class="form-group has-feedback">
-								<label for="inputPasswordCheck" class="sr-only">비밀번호 확인</label>
+								<label for="inputPasswordCheck" class="sr-only">새 비밀번호 확인</label>
 								<input type="password" id="inputPasswordCheck" class="form-control"
-									placeholder="비밀번호 확인" data-match="#inputPassword" 
+									placeholder="새 비밀번호 확인" data-match="#inputPassword" 
 									data-match-error="비밀번호가 일치하지 않습니다!" required>
 								<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
 								<div class="help-block with-errors"></div>
@@ -75,14 +75,19 @@
 								<div class="help-block with-errors"></div>
 							</div>
 							
+							<input type="hidden" name="memberNum" value="${member.memberNum}">
 							<div class="form-group">
 								<button class="btn btn-lg btn-primary" type="submit">
-									회원 가입
+									수정 완료
 								</button>
 							</div>
-							<a href="../" class="btn btn-lg btn-primary">
-								돌아가기
-							</a>
+							
+							<div class="form-group">
+								<button id="withdrawal" class="btn btn-lg btn-danger" type="button">
+									회원 탈퇴
+								</button>
+							</div>
+							
 						</form>
 					</div>
 					
@@ -110,7 +115,7 @@
 		<script type="text/javascript" src="<c:url value='/resources/js/validator.js'/>"></script>
 		
 		<!-- Custom javascript -->
-		<script type="text/javascript" src="<c:url value='/resources/js/memberJoin.js'/>"></script>
+		<script type="text/javascript" src="<c:url value='/resources/js/memberUpdate.js'/>"></script>
 		
 	</body>
 </html>

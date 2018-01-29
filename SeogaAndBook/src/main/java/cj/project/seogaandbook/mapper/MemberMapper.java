@@ -11,4 +11,8 @@ public interface MemberMapper {
 	Member getMemberInfoById(String id);
 	
 	Member getMemberInfoByEmail(String email);
+	
+	int update(Member member);
+	
+	int delete(String id);
 }

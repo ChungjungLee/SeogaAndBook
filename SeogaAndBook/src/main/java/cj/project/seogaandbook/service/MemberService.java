@@ -28,6 +28,24 @@ public class MemberService {
 	}
 	
 	/**
+	 * 로그인
+	 * @param id
+	 * @param password
+	 * @return
+	 */
+	public boolean login(String id, String password) {
+		boolean result = true;
+		
+		Member member = getMemberInfoById(id);
+		
+		if (member == null || !password.equals(member.getPassword())) {
+			result = false;
+		}
+		
+		return result;
+	}
+	
+	/**
 	 * 한 명의 회원 정보를 받아온다.
 	 * @return 있다면 Member를 반환, 없다면 null을 반환
 	 */
@@ -49,5 +67,35 @@ public class MemberService {
 	 */
 	public Member getMemberInfoByEmail(String email) {
 		return memberDAO.getMemberInfoByEmail(email);
+	}
+	
+	/**
+	 * 회원 정보 수정
+	 * @param member
+	 * @return
+	 */
+	public boolean update(Member member) {
+		boolean result = false;
+		
+		if (memberDAO.update(member) == 1) {
+			result = true;
+		}
+		
+		return result;
+	}
+	
+	/**
+	 * 회원 정보 삭제
+	 * @param memberNum
+	 * @return
+	 */
+	public boolean delete(String id) {
+		boolean result = false;
+		
+		if (memberDAO.delete(id) == 1) {
+			result = true;
+		}
+		
+		return result;
 	}
 }

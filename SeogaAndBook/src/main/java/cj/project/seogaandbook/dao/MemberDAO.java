@@ -47,7 +47,7 @@ public class MemberDAO {
 			result = mapper.getMemberInfo(memberNum);
 			
 		} catch (Exception e) {
-			
+			e.printStackTrace();
 		}
 		
 		return result;
@@ -67,7 +67,7 @@ public class MemberDAO {
 			result = mapper.getMemberInfoById(id);
 			
 		} catch (Exception e) {
-			
+			e.printStackTrace();
 		}
 		
 		return result;
@@ -87,11 +87,52 @@ public class MemberDAO {
 			result = mapper.getMemberInfoById(email);
 			
 		} catch (Exception e) {
-			
+			e.printStackTrace();
 		}
 		
 		return result;
 	}
+	
+	/**
+	 * 회원 정보 수정
+	 * @param member
+	 * @return
+	 */
+	public int update(Member member) {
+		int result = 0;
+		
+		try {
+			MemberMapper mapper = session.getMapper(MemberMapper.class);
+			
+			result = mapper.update(member);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+	
+	/**
+	 * 회원 정보 삭제
+	 * @param memberNum
+	 * @return
+	 */
+	public int delete(String id) {
+		int result = 0;
+		
+		try {
+			MemberMapper mapper = session.getMapper(MemberMapper.class);
+			
+			result = mapper.delete(id);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+	
 }
 
 

@@ -30,6 +30,7 @@
 		
 	</head>
 	<body>
+		<c:set var="myContextPath" value="${pageContext.request.contextPath}"/>
 		
 		<div class="site-wrapper">
 			<div class="site-wrapper-inner">
@@ -37,11 +38,9 @@
 					<div class="inner cover">
 						<h1 class="cover-heading">회원 가입을 축하드립니다.</h1>
 						
-						<a href="/" class="btn btn-lg btn-primary">
+						<a href="${myContextPath}" class="btn btn-lg btn-primary">
 							로그인
 						</a>
-						
-						
 						
 					</div>
 					

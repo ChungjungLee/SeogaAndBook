@@ -49,6 +49,25 @@
 		WHERE
 			email = #{value}
 	</select>
+	
+	<!-- 회원 정보 수정 -->
+	<update id="update" parameterType="Member">
+		UPDATE
+			sab_members
+		SET
+			password = #{password},
+			email = #{email}
+		WHERE
+			memberNum = #{memberNum}
+	</update>
+	
+	<!-- 회원 정보 삭제 -->
+	<delete id="delete" parameterType="String">
+		DELETE FROM
+			sab_members
+		WHERE
+			id = #{value}
+	</delete>
 </mapper>
 
 
