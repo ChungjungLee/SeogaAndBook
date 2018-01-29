@@ -67,6 +67,23 @@ public class MemberController {
 	}
 	
 	/**
+	 * 해당 이메일이 중복인지 아닌지 확인
+	 * @param id
+	 * @param response
+	 */
+	@RequestMapping (value = "checkEmailDuplicate", method = RequestMethod.GET)
+	@ResponseBody
+	public void checkEmailDuplicate(String email, HttpServletResponse response) {
+		logger.info("검사 이메일: {}", email);
+		
+		if (memberService.getMemberInfoByEmail(email) == null) {
+			response.setStatus(HttpServletResponse.SC_OK);
+		} else {
+			response.setStatus(HttpServletResponse.SC_LENGTH_REQUIRED);
+		}
+	}
+	
+	/**
 	 * 로그인 
 	 * @param id
 	 * @param password

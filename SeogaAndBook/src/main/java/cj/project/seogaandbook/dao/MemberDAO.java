@@ -84,7 +84,7 @@ public class MemberDAO {
 		try {
 			MemberMapper mapper = session.getMapper(MemberMapper.class);
 			
-			result = mapper.getMemberInfoById(email);
+			result = mapper.getMemberInfoByEmail(email);
 			
 		} catch (Exception e) {
 			e.printStackTrace();

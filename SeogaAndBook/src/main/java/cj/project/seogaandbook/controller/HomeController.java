@@ -15,14 +15,11 @@ public class HomeController {
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String welcome(HttpSession session) {
-		logger.info("서가앤북 오신걸 환영");
-		
 		if (session.getAttribute("loginId") == null) {
 			return "welcome";
-		} else {
-			return "home";
 		}
 		
+		return "home";
 	}
 	
 	@RequestMapping(value = "home", method = RequestMethod.GET)

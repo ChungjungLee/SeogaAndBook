@@ -186,3 +186,62 @@ CREATE TABLE sab_readingHistories(
 DROP SEQUENCE sab_readingHistories_SEQ;
 CREATE SEQUENCE sab_readingHistories_SEQ;
 
+
+
+
+-- 카테고리 기본 설정
+INSERT INTO sab_categories
+	(categoryNum, name, parentNum)
+VALUES
+	(1, '문학', null);
+
+INSERT INTO sab_categories
+	(categoryNum, name, parentNum)
+VALUES
+	(2, '비문학', null);
+
+INSERT INTO sab_categories
+	(categoryNum, name, parentNum)
+VALUES
+	(3, '시', 1);
+
+INSERT INTO sab_categories
+	(categoryNum, name, parentNum)
+VALUES
+	(4, '소설', 1);
+
+INSERT INTO sab_categories
+	(categoryNum, name, parentNum)
+VALUES
+	(5, '수필', 2);
+
+INSERT INTO sab_categories
+	(categoryNum, name, parentNum)
+VALUES
+	(6, '에세이', 2);
+
+-- 계층형 쿼리를 이용한 구현
+SELECT
+    LEVEL,
+    LPAD(' ', 2*(LEVEL-1)) || name as name,
+    categoryNum,
+    parentNum
+FROM
+    sab_categories
+START WITH
+    parentNum IS NULL   -- root node
+CONNECT BY PRIOR
+    categoryNum = ParentNum;-- set parent and child rel
+
+
+
+
+
+
+
+
+
+
+
+
+

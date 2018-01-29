@@ -35,6 +35,76 @@
 			<jsp:include page="../commonPages/topBanner.jsp" />
 		</header>
 		
+		<div class="site-wrapper">
+			<div class="site-wrapper-inner">
+				<div class="cover-container">
+					<div class="inner cover">
+						<h1 class="cover-heading">도서 등록</h1>
+						
+						<a href="../" class="btn btn-lg btn-primary">
+							작가 등록
+						</a>
+						<a href="../" class="btn btn-lg btn-primary">
+							출판사 등록
+						</a>
+						
+						<form class="form-signin" id="signin-form" data-toggle="validator">
+							<div class="form-group has-feedback">
+								<label for="inputIsbn13" class="sr-only">ISBN13</label> 
+								<input type="text" id="inputIsbn13" name="isbn13"
+									class="form-control" placeholder="ISBN13" pattern="^[_0-9]{1,}$"
+									required>
+								<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+								<div id="help-block-id" class="help-block with-errors"></div>
+							</div>
+							
+							<div class="form-group has-feedback">
+								<label for="inputTitle" class="sr-only">제목</label>
+								<input type="text" id="inputTitle" name="title" 
+									class="form-control" placeholder="제목" 
+									required>
+								<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+								<div class="help-block with-errors"></div>
+							</div>
+							
+							<div class="form-group has-feedback">
+								<label for="inputTitle" class="sr-only">제목</label>
+								<input type="text" id="inputTitle" name="title" 
+									class="form-control" placeholder="제목" 
+									required>
+								<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+								<div class="help-block with-errors"></div>
+							</div>
+							
+							<div class="form-group">
+								<button class="btn btn-lg btn-primary" type="submit">
+									회원 가입
+								</button>
+							</div>
+							<a href="../" class="btn btn-lg btn-primary">
+								돌아가기
+							</a>
+						</form>
+					</div>
+					
+					<div class="mastfoot">
+						<div class="inner">
+							<p>
+								Constructed by 
+								<a href="https://github.com/chunglee-test/SeogaAndBook">Chungjung Lee</a> 
+							</p>
+							<p>
+								Cover template for <a href="http://getbootstrap.com">Bootstrap</a>,
+								by <a href="https://twitter.com/mdo">@mdo</a>.
+							</p>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		
+		
 		
 		
 		<!-- Include all compiled plugins (below), or include individual files as needed -->

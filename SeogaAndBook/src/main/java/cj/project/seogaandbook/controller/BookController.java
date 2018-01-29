@@ -30,4 +30,6 @@ public class BookController {
 		logger.info("called bookEnter");
 		return "bookPages/bookEnter";
 	}
+	
+	
 }

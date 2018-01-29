@@ -1,6 +1,7 @@
 package cj.project.seogaandbook.vo;
 
 public class Category {
+	private int level;
 	private int categoryNum;
 	private String name;
 	private int parentNum;
@@ -8,11 +9,18 @@ public class Category {
 	public Category() {}
 	
 	public Category(int categoryNum, String name, int parentNum) {
+		level = 0;
 		this.categoryNum = categoryNum;
 		this.name = name;
 		this.parentNum = parentNum;
 	}
 	
+	public int getLevel() {
+		return level;
+	}
+	public void setLevel(int level) {
+		this.level = level;
+	}
 	public int getCategoryNum() {
 		return categoryNum;
 	}
@@ -34,7 +42,7 @@ public class Category {
 	
 	@Override
 	public String toString() {
-		return "Category [categoryNum=" + categoryNum + ", name=" + name + ", parentNum=" + parentNum + "]";
+		return "Category [level=" + level + "categoryNum=" + categoryNum + ", name=" + name + ", parentNum=" + parentNum + "]";
 	}
 	
 }

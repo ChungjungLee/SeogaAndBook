@@ -197,9 +197,13 @@
         data[$el.attr('name')] = getValue($el)
         $.get($el.attr('data-remote'), data)
           .fail(function (jqXHR, textStatus, error) { 
-        	  //alert('error');
+        	  if (error == 'Expectation Failed') {
+        		  errors.push('사용중인 아이디입니다.' || error);
+        	  } else if (error == 'Length Required') {
+        		  errors.push('사용중인 이메일입니다.' || error);
+        	  }
+        	  
         	  //errors.push(getErrorMessage('remote') || error)
-        	  errors.push('사용중인 아이디입니다.' || error);
         	  })
           
           .always(function () { deferred.resolve(errors)})

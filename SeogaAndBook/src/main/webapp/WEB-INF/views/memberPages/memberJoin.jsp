@@ -69,8 +69,9 @@
 							
 							<div class="form-group has-feedback">
 								<label for="inputEmail" class="sr-only">이메일</label> 
-								<input type="email" id="inputEmail" name="email" class="form-control"
-									placeholder="이메일 주소" data-error="잘못된 이메일 주소입니다." required>
+								<input type="email" id="inputEmail" name="email" data-remote="checkEmailDuplicate" 
+									class="form-control" placeholder="이메일 주소" data-error="잘못된 이메일 주소입니다." 
+									required>
 								<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
 								<div class="help-block with-errors"></div>
 							</div>
