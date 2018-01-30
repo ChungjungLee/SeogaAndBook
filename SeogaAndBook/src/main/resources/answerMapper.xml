@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 질문 답변 정보 관리를 위한 SQL -->
+<mapper namespace="cj.project.seogaandbook.mapper.AnswerMapper">
+	
+	<!-- 답변 정보 저장 -->
+	<insert id="enter" parameterType="Answer">
+		INSERT INTO sab_answers
+			(answerNum, questionNum, memberNum, content)
+		VALUES
+			(sab_answers_SEQ.nextval, #{questionNum}, #{memberNum}, #{content})
+	</insert>
+	
+	<!-- 해당 질문의 모든 답변 정보 가져오기 -->
+	<select id="getAllAnswers" parameterType="int" resultType="Answer">
+		SELECT
+			a.answerNum answerNum
+			, a.questionNum questionNum
+			, a.memberNum memberNum
+			, a.content content
+			, a.indate indate
+			, a.hits hits
+			, m.id memberName
+		FROM
+			sab_answers a, sab_members m
+		WHERE
+			a.memberNum = m.memberNum
+			AND questionNum = #{value}
+		ORDER BY
+			hits DESC
+	</select>
+	
+	<!-- 특정 질문 가져오기 -->
+	<select id="getAnswerByNum" parameterType="int" resultType="Answer">
+		SELECT
+			*
+		FROM
+			sab_answers
+		WHERE
+			answerNum = #{value}
+	</select>
+	
+	<!-- 답변 수정 -->
+	<update id="update" parameterType="Answer">
+		UPDATE
+			sab_answers
+		SET
+			content = #{content}
+		WHERE
+			answerNum = #{answerNum}
+	</update>
+	
+	<!-- 답변 지우기 -->
+	<delete id="delete" parameterType="int">
+		DELETE FROM
+			sab_answers
+		WHERE
+			answerNum = #{value}
+	</delete>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

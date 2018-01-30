@@ -23,5 +23,7 @@
 		<mapper resource="authorMapper.xml" />
 		<mapper resource="publisherMapper.xml" />
 		<mapper resource="categoryMapper.xml" />
+		<mapper resource="questionMapper.xml" />
+		<mapper resource="answerMapper.xml" />
 	</mappers>
 </configuration>

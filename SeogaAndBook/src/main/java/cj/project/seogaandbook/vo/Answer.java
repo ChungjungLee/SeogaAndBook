@@ -9,16 +9,18 @@ public class Answer {
 	private int answerNum;
 	private int questionNum;
 	private int memberNum;
+	private String memberName;
 	private String content;
 	private String indate;
 	private int hits;
 	
 	public Answer() {}
 	
-	public Answer(int answerNum, int questionNum, int memberNum, String content, String indate, int hits) {
+	public Answer(int answerNum, int questionNum, int memberNum, String memberName, String content, String indate, int hits) {
 		this.answerNum = answerNum;
 		this.questionNum = questionNum;
 		this.memberNum = memberNum;
+		this.memberName = memberName;
 		this.content = content;
 		this.indate = indate;
 		this.hits = hits;
@@ -41,6 +43,12 @@ public class Answer {
 	}
 	public void setMemberNum(int memberNum) {
 		this.memberNum = memberNum;
+	}
+	public String getMemberName() {
+		return memberName;
+	}
+	public void setMemberName(String memberName) {
+		this.memberName = memberName;
 	}
 	public String getContent() {
 		return content;

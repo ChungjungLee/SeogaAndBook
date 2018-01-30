@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 질문 정보 관리를 위한 SQL -->
+<mapper namespace="cj.project.seogaandbook.mapper.QuestionMapper">
+	
+	<!-- 질문 저장 -->
+	<insert id="enter">
+		INSERT INTO sab_questions
+			(questionNum, memberNum, title, content)
+		VALUES
+			(sab_questions_SEQ.nextval, #{memberNum}, #{title}, #{content})
+	</insert>
+	
+	<!-- 모든 질문 가져오기 -->
+	<select id="getAllQuestions" resultType="Question">
+		SELECT
+			q.questionNum as questionNum,
+			q.title as title,
+			q.content as content,
+			q.indate as indate,
+			q.views as views,
+			m.id as memberName
+		FROM
+			sab_questions q, sab_members m
+		WHERE
+			q.memberNum = m.memberNum
+		ORDER BY
+			q.indate DESC
+	</select>
+	
+	<!-- 페이지별로 질문 가져오기 -->
+	
+	<!-- 질문 게시글 하나 가져오기 -->
+	<select id="getQuestionByNum" parameterType="int" resultType="Question">
+		SELECT
+			q.questionNum as questionNum,
+			q.title as title,
+			q.content as content,
+			q.indate as indate,
+			q.views as views,
+			m.id as memberName
+		FROM
+			sab_questions q, sab_members m
+		WHERE
+			q.memberNum = m.memberNum
+			AND q.questionNum = #{value}
+		ORDER BY
+			q.indate DESC
+	</select>
+	
+	<!-- 게시글 수정 -->
+	<update id="update" parameterType="Question">
+		UPDATE
+			sab_questions
+		SET
+			title = #{title}
+			, content = #{content}
+		WHERE
+			questionNum = #{questionNum}
+	</update>
+	
+	<!-- 게시글 삭제 -->
+	<delete id="delete" parameterType="int">
+		DELETE FROM
+			sab_questions
+		WHERE
+			questionNum = #{questionNum}
+	</delete>
+	
+	<!-- 조회수 늘리기 -->
+	<update id="updateView" parameterType="int">
+		UPDATE
+			sab_questions
+		SET
+			views = views + 1
+		WHERE
+			questionNum = #{value}
+	</update>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

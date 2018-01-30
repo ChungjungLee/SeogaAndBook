@@ -8,6 +8,7 @@ package cj.project.seogaandbook.vo;
 public class Question {
 	private int questionNum;
 	private int memberNum;
+	private String memberName;
 	private String title;
 	private String content;
 	private String indate;
@@ -15,9 +16,10 @@ public class Question {
 	
 	public Question() {}
 	
-	public Question(int questionNum, int memberNum, String title, String content, String indate, int views) {
+	public Question(int questionNum, int memberNum, String memberName, String title, String content, String indate, int views) {
 		this.questionNum = questionNum;
 		this.memberNum = memberNum;
+		this.memberName = memberName;
 		this.title = title;
 		this.content = content;
 		this.indate = indate;
@@ -35,6 +37,12 @@ public class Question {
 	}
 	public void setMemberNum(int memberNum) {
 		this.memberNum = memberNum;
+	}
+	public String getMemberName() {
+		return memberName;
+	}
+	public void setMemberName(String memberName) {
+		this.memberName = memberName;
 	}
 	public String getTitle() {
 		return title;

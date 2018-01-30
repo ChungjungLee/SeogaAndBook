@@ -9,7 +9,7 @@
 	<body>
 		<c:set var="myContextPath" value="${pageContext.request.contextPath}"/>
 		
-		<div class="container ">
+		<div class="container topBanner">
 			<%-- <img class="col-2 logo" src="<c:url value='/resources/image/logo.jpg'/>" alt="logo"> --%>
 			<c:if test="${sessionScope.loginId != null}">
 				<label class="">안녕하세요 ${sessionScope.loginId} 회원님</label>
