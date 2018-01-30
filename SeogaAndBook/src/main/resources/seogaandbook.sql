@@ -220,7 +220,7 @@ INSERT INTO sab_categories
 VALUES
 	(6, '에세이', 2);
 
--- 계층형 쿼리를 이용한 구현
+-- 계층형 쿼리를 이용한 카테고리 불러오기
 SELECT
     LEVEL,
     LPAD(' ', 2*(LEVEL-1)) || name as name,
@@ -231,10 +231,22 @@ FROM
 START WITH
     parentNum IS NULL   -- root node
 CONNECT BY PRIOR
-    categoryNum = ParentNum;-- set parent and child rel
+    categoryNum = parentNum;-- set parent and child rel
 
-
-
+-- resource busy 해결
+SELECT
+	o.object_name, s.sid, s.serial#,
+	p.spid, s.program, s.username, s.machine,
+	s.port, s.logon_time, sq.sql_fulltext
+FROM
+	v$locked_object l, dba_objects o, v$session s,
+	v$process p, v$sql sq
+WHERE
+	l.object_id = o.object_id
+	AND l.session_id = s.sid
+	AND s.paddr = p.addr
+	AND s.sql_address = sq.address;
+	
 
 
 

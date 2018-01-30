@@ -3,9 +3,24 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<!-- 책 정보 관리를 위한 SQL -->
+<!-- 작가 정보 관리를 위한 SQL -->
 <mapper namespace="cj.project.seogaandbook.mapper.AuthorMapper">
 	
+	<!-- 작가 정보 저장 -->
+	<insert id="enter" parameterType="Author">
+		INSERT INTO sab_authors
+			(authorNum, name, introduction)
+		VALUES
+			(sab_authors_SEQ.nextval, #{name}, #{introduction})
+	</insert>
+	
+	<!-- 모든 작가 정보 가져오기 -->
+	<select id="getAllAuthors" resultType="Author">
+		SELECT
+			*
+		FROM
+			sab_authors
+	</select>
 	
 </mapper>
 

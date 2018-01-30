@@ -3,9 +3,23 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<!-- 책 정보 관리를 위한 SQL -->
+<!-- 출판사 정보 관리를 위한 SQL -->
 <mapper namespace="cj.project.seogaandbook.mapper.PublisherMapper">
+	<!-- 출판사 저장 -->
+	<insert id="enter" parameterType="Publisher">
+		INSERT INTO sab_publishers
+			(publisherNum, name)
+		VALUES
+			(sab_publishers_SEQ.nextval, #{name})
+	</insert>
 	
+	<!-- 모든 출판사 정보 가져오기 -->
+	<select id="getAllPubs" resultType="Publisher">
+		SELECT
+			*
+		FROM
+			sab_publishers
+	</select>
 	
 </mapper>
 

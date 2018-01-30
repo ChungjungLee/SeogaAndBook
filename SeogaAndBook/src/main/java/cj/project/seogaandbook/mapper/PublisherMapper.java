@@ -1,5 +1,11 @@
 package cj.project.seogaandbook.mapper;
 
-public interface PublisherMapper {
+import java.util.ArrayList;
 
+import cj.project.seogaandbook.vo.Publisher;
+
+public interface PublisherMapper {
+	public int enter(Publisher publisher);
+	
+	public ArrayList<Publisher> getAllPubs();
 }

@@ -18,13 +18,11 @@ public class MemberService {
 	 * @return boolean 가입 성공 여부를 반환
 	 */
 	public boolean signUp(Member member) {
-		boolean result = false;
-		
 		if (memberDAO.signUp(member) == 1) {
-			result = true;
+			return true;
+		} else {
+			return false;
 		}
-		
-		return result;
 	}
 	
 	/**
@@ -34,15 +32,13 @@ public class MemberService {
 	 * @return
 	 */
 	public boolean login(String id, String password) {
-		boolean result = true;
-		
 		Member member = getMemberInfoById(id);
 		
 		if (member == null || !password.equals(member.getPassword())) {
-			result = false;
+			return false;
+		} else {
+			return true;
 		}
-		
-		return result;
 	}
 	
 	/**
@@ -75,13 +71,11 @@ public class MemberService {
 	 * @return
 	 */
 	public boolean update(Member member) {
-		boolean result = false;
-		
 		if (memberDAO.update(member) == 1) {
-			result = true;
+			return true;
+		} else {
+			return false;
 		}
-		
-		return result;
 	}
 	
 	/**
@@ -90,12 +84,10 @@ public class MemberService {
 	 * @return
 	 */
 	public boolean delete(String id) {
-		boolean result = false;
-		
 		if (memberDAO.delete(id) == 1) {
-			result = true;
+			return true;
+		} else {
+			return false;
 		}
-		
-		return result;
 	}
 }

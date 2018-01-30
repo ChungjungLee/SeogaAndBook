@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 카테고리 정보 관리를 위한 SQL -->
+<mapper namespace="cj.project.seogaandbook.mapper.CategoryMapper">
+	
+	<!-- 모든 카테고리 정보 가져오기 -->
+	<select id="getAllCategoriesOrigin" resultType="Category">
+		SELECT
+			*
+		FROM
+			sab_categories
+	</select>
+	
+	<!-- 모든 카테고리 정보 가져오기 by 계층쿼리 -->
+	<select id="getAllCategories" resultType="Category">
+		SELECT
+			level,
+			categoryNum,
+			LPAD('　', 2*(level-1)) || name name,
+			parentNum
+		FROM
+			sab_categories
+		START WITH
+			parentNum IS NULL
+		CONNECT BY PRIOR
+			categoryNum = parentNum
+	</select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -39,7 +39,7 @@
 			<!-- Example row of columns -->
 			
 			<div class="row">
-				<a href="" class="btn btn-warning" role="button">도서 등록</a>
+				<a href="enter" class="btn btn-warning" role="button">도서 등록</a>
 			</div>
 			
 			<div class="row">

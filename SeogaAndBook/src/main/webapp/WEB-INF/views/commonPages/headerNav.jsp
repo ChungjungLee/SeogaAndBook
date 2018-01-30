@@ -23,17 +23,21 @@
 				<div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav">
 						
-						<li id="headerNav-author"><a href="${myContextPath}/author/authorHome">작가</a></li>
-						<li id="headerNav-book"><a href="${myContextPath}/book/bookHome">도서</a></li>
-						<li id="headerNav-review"><a href="${myContextPath}/review/reviewHome">서평</a></li>
-						<li id="headerNav-question"><a href="${myContextPath}/question/questionHome">질문</a></li>
+						<li id="headerNav-author"><a href="${myContextPath}/author/home">작가</a></li>
+						<li id="headerNav-book"><a href="${myContextPath}/book/home">도서</a></li>
+						<li id="headerNav-review"><a href="${myContextPath}/review/home">서평</a></li>
+						<li id="headerNav-question"><a href="${myContextPath}/question/home">질문</a></li>
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" 
 								role="button" aria-expanded="false">
-								카테고리
+								도서
 								<span class="caret"></span>
 							</a>
 							<ul class="dropdown-menu" role="menu">
+								<li class="dropdown-header">분류</li>
+								<li><a href="#">작가별</a></li>
+								<li><a href="#">출판사별</a></li>
+								<li class="divider"></li>
 								<li class="dropdown-header">장르별</li>
 								<li><a href="#">소설</a></li>
 								<li><a href="#">시/에세이</a></li>

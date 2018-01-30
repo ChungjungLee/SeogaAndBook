@@ -41,18 +41,18 @@
 					<div class="inner cover">
 						<h1 class="cover-heading">도서 등록</h1>
 						
-						<a href="../" class="btn btn-lg btn-primary">
+						<a href="../author/enter" class="btn btn-sm btn-primary">
 							작가 등록
 						</a>
-						<a href="../" class="btn btn-lg btn-primary">
+						<a href="../publish/enter" class="btn btn-sm btn-primary">
 							출판사 등록
 						</a>
 						
-						<form class="form-signin" id="signin-form" data-toggle="validator">
+						<form class="form-signin" id="book-form" data-toggle="validator">
 							<div class="form-group has-feedback">
 								<label for="inputIsbn13" class="sr-only">ISBN13</label> 
-								<input type="text" id="inputIsbn13" name="isbn13"
-									class="form-control" placeholder="ISBN13" pattern="^[_0-9]{1,}$"
+								<input type="text" id="inputIsbn13" name="isbn13" data-remote="checkIsbn13Duplicate"
+									class="form-control" placeholder="ISBN13" pattern="^[0-9]{13}$"
 									required>
 								<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
 								<div id="help-block-id" class="help-block with-errors"></div>
@@ -68,22 +68,78 @@
 							</div>
 							
 							<div class="form-group has-feedback">
-								<label for="inputTitle" class="sr-only">제목</label>
-								<input type="text" id="inputTitle" name="title" 
-									class="form-control" placeholder="제목" 
+								<label for="inputIntro" class="sr-only">소개</label>
+								<input type="text" id="inputIntro" name="introduction" 
+									class="form-control" placeholder="소개" 
 									required>
 								<span class="glyphicon form-control-feedback" aria-hidden="true"></span>
 								<div class="help-block with-errors"></div>
 							</div>
 							
+							<div class="form-group has-feedback">
+								<label for="category-selection" class="sr-only">카테고리</label>
+								<select class="form-control" id="category-selection" name="categoryNum" required>
+									<option selected disabled>카테고리 선택</option>
+									<c:choose>
+										<c:when test="${categories.size() == 0}">
+											<option disabled>카테고리 정보가 없습니다. 등록 먼저!</option>
+										</c:when>
+										<c:otherwise>
+											<c:forEach var="category" items="${categories}">
+												<option value="${category.categoryNum}" 
+													<c:if test="${category.parentNum == 0}">disabled</c:if>>
+													${category.name}
+												</option>
+											</c:forEach>
+										</c:otherwise>
+									</c:choose>
+								</select>
+							</div>
+							
+							<div class="form-group has-feedback">
+								<label for="publisher-selection" class="sr-only">출판사</label>
+								<select class="form-control" id="publisher-selection" name="publisherNum" required>
+									<option selected disabled>출판사 선택</option>
+									<c:choose>
+										<c:when test="${publishers.size() == 0}">
+											<option disabled>출판사 정보가 없습니다. 등록 먼저!</option>
+										</c:when>
+										<c:otherwise>
+											<c:forEach var="publisher" items="${publishers}">
+												<option value="${publisher.publisherNum}">
+													${publisher.name}
+												</option>
+											</c:forEach>
+										</c:otherwise>
+									</c:choose>
+								</select>
+							</div>
+							
+							<div class="form-group has-feedback">
+								<label for="publisher-selection" class="sr-only">작가</label>
+								<select class="form-control" id="author-selection" name="authorNum" required>
+									<option selected disabled>작가 선택</option>
+									<c:choose>
+										<c:when test="${authors.size() == 0}">
+											<option disabled>작가 정보가 없습니다. 등록 먼저!</option>
+										</c:when>
+										<c:otherwise>
+											<c:forEach var="author" items="${authors}">
+												<option value="${author.authorNum}">
+													${author.name}
+												</option>
+											</c:forEach>
+										</c:otherwise>
+									</c:choose>
+								</select>
+							</div>
+							
 							<div class="form-group">
 								<button class="btn btn-lg btn-primary" type="submit">
-									회원 가입
+									도서 등록
 								</button>
 							</div>
-							<a href="../" class="btn btn-lg btn-primary">
-								돌아가기
-							</a>
+							
 						</form>
 					</div>
 					
@@ -91,9 +147,7 @@
 						<div class="inner">
 							<p>
 								Constructed by 
-								<a href="https://github.com/chunglee-test/SeogaAndBook">Chungjung Lee</a> 
-							</p>
-							<p>
+								<a href="https://github.com/chunglee-test/SeogaAndBook">Chungjung Lee</a><br>
 								Cover template for <a href="http://getbootstrap.com">Bootstrap</a>,
 								by <a href="https://twitter.com/mdo">@mdo</a>.
 							</p>
@@ -109,6 +163,9 @@
 		
 		<!-- Include all compiled plugins (below), or include individual files as needed -->
 		<script src="<c:url value='/resources/bootstrap/js/bootstrap.min.js'/>"></script>
+		
+		<!-- Bootstrap Validator -->
+		<script type="text/javascript" src="<c:url value='/resources/js/validator.js'/>"></script>
 		
 		<!-- Custom javascript -->
 		<script type="text/javascript" src="<c:url value='/resources/js/bookEnter.js'/>"></script>

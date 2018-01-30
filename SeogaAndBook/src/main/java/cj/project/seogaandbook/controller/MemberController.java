@@ -41,9 +41,6 @@ public class MemberController {
 	 */
 	@RequestMapping (value = "join", method = RequestMethod.POST)
 	public String join(Member member) {
-		
-		logger.info("가입 정보: {}", member);
-		
 		if (memberService.signUp(member)) {
 			return "memberPages/memberJoinComplete";
 		} else {
@@ -74,8 +71,6 @@ public class MemberController {
 	@RequestMapping (value = "checkEmailDuplicate", method = RequestMethod.GET)
 	@ResponseBody
 	public void checkEmailDuplicate(String email, HttpServletResponse response) {
-		logger.info("검사 이메일: {}", email);
-		
 		if (memberService.getMemberInfoByEmail(email) == null) {
 			response.setStatus(HttpServletResponse.SC_OK);
 		} else {
@@ -177,7 +172,7 @@ public class MemberController {
 	}
 	
 	
-	
+	/*
 	@RequestMapping (value = "checkIdDuplicateOther", method = RequestMethod.GET)
 	@ResponseBody
 	public HashMap<String, Boolean> checkIdDuplicateOther(String id) {
@@ -193,5 +188,5 @@ public class MemberController {
 		}
 		
 		return result;
-	}
+	}*/
 }

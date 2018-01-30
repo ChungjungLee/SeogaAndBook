@@ -201,6 +201,8 @@
         		  errors.push('사용중인 아이디입니다.' || error);
         	  } else if (error == 'Length Required') {
         		  errors.push('사용중인 이메일입니다.' || error);
+        	  } else if (error == 'Not Acceptable') {
+        		  errors.push('등록되어 있는 도서입니다.' || error);
         	  }
         	  
         	  //errors.push(getErrorMessage('remote') || error)
