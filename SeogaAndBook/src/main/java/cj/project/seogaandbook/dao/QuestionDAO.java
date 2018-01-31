@@ -1,7 +1,9 @@
 package cj.project.seogaandbook.dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
+import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -27,6 +29,56 @@ public class QuestionDAO {
 			
 			result = mapper.enter(question);
 			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+	
+	/**
+	 * 질문 글 검색 결과를 반환
+	 * @param limit 페이지 당 보여줄 질문 글 수
+	 * @param page 현재 페이지
+	 * @param select 검색 조건
+	 * @param text 검색어
+	 * @return
+	 */
+	public ArrayList<Question> search(int limit, int page, String select, String text) {
+		ArrayList<Question> result = null;
+		
+		HashMap<String, Object> map = new HashMap<>();
+		map.put("select", select);
+		map.put("text", text);
+		
+		// RowBounds(int offset, int limit)
+		RowBounds rb = new RowBounds((page - 1) * limit, limit);
+		
+		try {
+			QuestionMapper mapper = session.getMapper(QuestionMapper.class);
+			result = mapper.searchList(rb, map);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+	
+	/**
+	 * 게시물의 총 개수를 반환. 검색 결과의 총 개수를 반환
+	 * @param text
+	 * @return
+	 */
+	public int selectTotalCount(String select, String text) {
+		int result = 0;
+		
+		HashMap<String, Object> map = new HashMap<>();
+		map.put("select", select);
+		map.put("text", text);
+		
+		try {
+			QuestionMapper mapper = session.getMapper(QuestionMapper.class);
+			result = mapper.searchListCount(map);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

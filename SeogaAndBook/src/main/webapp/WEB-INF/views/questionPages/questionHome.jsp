@@ -40,13 +40,13 @@
 					<div class="inner cover">
 						<h1 class="text-center">질문게시판</h1>
 			
-						<label class="text-left">검색된 게시글:</label>
+						<label class="text-left">게시글 수: ${totalCount}</label>
 			
 						<a class="btn btn-primary pull-right" href="write">글쓰기</a>
 			
 						<table class="table table-inverse table-striped table-hover">
 							<tr>
-								<th>번호</th>
+								<th>글 번호</th>
 								<th>제목</th>
 								<th>작성자</th>
 								<th>조회수</th>
@@ -74,39 +74,39 @@
 								</tr>
 							</c:forEach>
 						</table>
-			
-					<%-- <nav class="paging-bar" aria-label="Page navigation">
-						<ul class="pagination">
-							<c:if test="${navi.startPageGroup > 1}">
-								<li>
-									<a href="javascript:search(${navi.startPageGroup - 1})">이전 </a>
-								</li>
-							</c:if>
-							<c:forEach var="p" begin="${navi.startPageGroup}" end="${navi.endPageGroup}">
-								<c:choose>
-									<c:when test="${currentPage == p}">
-										<li class="active">
-											<span>${p}</span>
-										</li>
-									</c:when>
-									<c:otherwise>
-										<li>
-											<a href="javascript:search(${p})"><span>${p}</span></a>
-										</li>
-									</c:otherwise>
-								</c:choose>
-							</c:forEach>
-							<c:if test="${navi.endPageGroup < navi.totalPageCount}">
-								<li>
-									<a href="javascript:search(${navi.endPageGroup + 1})">다음 </a>
-								</li>
-							</c:if>
-						</ul>
-					</nav> --%>
-			
+						
+						<nav class="paging-bar" aria-label="Page navigation">
+							<ul class="pagination">
+								<c:if test="${navi.startPageGroup > 1}">
+									<li>
+										<a href="javascript:search(${navi.startPageGroup - 1})">이전 </a>
+									</li>
+								</c:if>
+								<c:forEach var="p" begin="${navi.startPageGroup}" end="${navi.endPageGroup}">
+									<c:choose>
+										<c:when test="${currentPage == p}">
+											<li class="active">
+												<span>${p}</span>
+											</li>
+										</c:when>
+										<c:otherwise>
+											<li>
+												<a href="javascript:search(${p})"><span>${p}</span></a>
+											</li>
+										</c:otherwise>
+									</c:choose>
+								</c:forEach>
+								<c:if test="${navi.endPageGroup < navi.totalPageCount}">
+									<li>
+										<a href="javascript:search(${navi.endPageGroup + 1})">다음 </a>
+									</li>
+								</c:if>
+							</ul>
+						</nav>
+						
 						<div class="searchbar">
 							<!-- 이 폼은 get 방식을 이용 -->
-							<form id="searchForm" action="list" method="GET">
+							<form id="searchForm" action="home" method="GET">
 								<div class="form-inline">
 									<select class="form-control" name="searchOption">
 										<option value="title" <c:if test="${param.searchOption == 'title'}">selected</c:if>>제목</option>
@@ -116,8 +116,8 @@
 									</select>
 									<input type="text" class="form-control" name="searchText" value="${param.searchText}"> 
 									
-									<input type="button" class="btn btn-default" value="검색" onclick="javascript:search(1)">
-									<input type="hidden" id="page" name="pagenum">
+									<input type="button" id="search-btn" class="btn btn-default" value="검색">
+									<input type="hidden" id="pageNum" name="pageNum">
 								</div>
 							</form>
 						</div>

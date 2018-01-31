@@ -11,10 +11,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import cj.project.seogaandbook.service.AnswerService;
 import cj.project.seogaandbook.service.MemberService;
 import cj.project.seogaandbook.service.QuestionService;
+import cj.project.seogaandbook.util.PageNavigator;
 import cj.project.seogaandbook.vo.Answer;
 import cj.project.seogaandbook.vo.Question;
 
@@ -31,6 +33,9 @@ public class QuestionController {
 	@Autowired
 	AnswerService answerService;
 	
+	private final int LIMIT = 10;	// 페이지 당 보여줄 게시글 수
+	private final int PAGES = 5;	// 그룹 당 보여줄 페이지 수
+	
 	Logger logger = LoggerFactory.getLogger(QuestionController.class);
 	
 	/**
@@ -38,10 +43,23 @@ public class QuestionController {
 	 * @return
 	 */
 	@RequestMapping (value = "home", method = RequestMethod.GET)
-	public String questionHomePage(Model model) {
-		ArrayList<Question> questions = questionService.getAllQuestions();
+	public String questionHomePage(
+			Model model,
+			@RequestParam(value="pageNum", defaultValue="1") int currentPage, 
+			@RequestParam(value="searchOption", defaultValue="") String select,
+			@RequestParam(value="searchText", defaultValue="") String text) {
+		
+		ArrayList<Question> questions = questionService.search(LIMIT, currentPage, select, text);
+		
+		int totalCount = questionService.selectTotalCount(select, text);
+		
+		// 네비게이터 표시를 위한 객체 생성
+		PageNavigator navi = new PageNavigator(LIMIT, PAGES, currentPage, totalCount);
 		
 		model.addAttribute("questions", questions);
+		model.addAttribute("totalCount", totalCount);
+		model.addAttribute("currentPage", currentPage);
+		model.addAttribute("navi", navi);
 		
 		return "questionPages/questionHome";
 	}

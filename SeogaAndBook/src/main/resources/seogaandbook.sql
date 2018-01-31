@@ -249,7 +249,13 @@ WHERE
 	
 
 
-
+-- 현재 테이블의 정보를 복사해서 불리기
+INSERT INTO sab_questions
+	(questionNum, memberNum, title, content)
+SELECT
+	sab_questions_SEQ.nextval, memberNum, title, content
+FROM
+	sab_questions;
 
 
 

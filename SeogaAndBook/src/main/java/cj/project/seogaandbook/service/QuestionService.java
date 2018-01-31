@@ -27,6 +27,27 @@ public class QuestionService {
 	}
 	
 	/**
+	 * 질문 글 검색 결과를 반환
+	 * @param limit 페이지 당 보여줄 질문 글 수
+	 * @param page 현재 페이지
+	 * @param select 검색 조건
+	 * @param text 검색어
+	 * @return
+	 */
+	public ArrayList<Question> search(int limit, int page, String select, String text) {
+		return questionDAO.search(limit, page, select, text);
+	}
+	
+	/**
+	 * 검색 결과의 총 개수를 반환
+	 * @param text
+	 * @return
+	 */
+	public int selectTotalCount(String select, String text) {
+		return questionDAO.selectTotalCount(select, text);
+	}
+	
+	/**
 	 * 모든 질문 글 가져오기
 	 * @return
 	 */
