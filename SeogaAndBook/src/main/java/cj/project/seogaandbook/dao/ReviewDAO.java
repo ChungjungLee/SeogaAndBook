@@ -161,4 +161,24 @@ public class ReviewDAO {
 		}
 		return result;
 	}
+	
+	/**
+	 * 조회수 증가
+	 * @param questionNum
+	 * @return
+	 */
+	public int updateView(int reviewNum) {
+		int result = 0;
+		
+		try {
+			ReviewMapper mapper = session.getMapper(ReviewMapper.class);
+			
+			result = mapper.updateView(reviewNum);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
 }

@@ -155,6 +155,16 @@
 		WHERE
 			reviewNum = #{value}
 	</delete>
+	
+	<!-- 조회수 늘리기 -->
+	<update id="updateView" parameterType="int">
+		UPDATE
+			sab_reviews
+		SET
+			views = views + 1
+		WHERE
+			reviewNum = #{value}
+	</update>
 </mapper>
 
 

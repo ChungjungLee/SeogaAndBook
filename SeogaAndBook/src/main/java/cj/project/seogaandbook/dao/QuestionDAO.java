@@ -124,6 +124,11 @@ public class QuestionDAO {
 		return result;
 	}
 	
+	/**
+	 * 질문 글 수정
+	 * @param question
+	 * @return
+	 */
 	public int update(Question question) {
 		int result = 0;
 		
@@ -139,7 +144,11 @@ public class QuestionDAO {
 		return result;
 	}
 	
-	
+	/**
+	 * 질문 글 삭제
+	 * @param questionNum
+	 * @return
+	 */
 	public int delete(int questionNum) {
 		int result = 0;
 		
@@ -155,6 +164,11 @@ public class QuestionDAO {
 		return result;
 	}
 	
+	/**
+	 * 조회수 증가
+	 * @param questionNum
+	 * @return
+	 */
 	public int updateView(int questionNum) {
 		int result = 0;
 		

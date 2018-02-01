@@ -8,11 +8,9 @@
 		<typeAlias type="cj.project.seogaandbook.vo.Author" alias="Author" />
 		<typeAlias type="cj.project.seogaandbook.vo.Book" alias="Book" />
 		<typeAlias type="cj.project.seogaandbook.vo.Category" alias="Category" />
-		<typeAlias type="cj.project.seogaandbook.vo.Comment" alias="Comment" />
 		<typeAlias type="cj.project.seogaandbook.vo.Member" alias="Member" />
 		<typeAlias type="cj.project.seogaandbook.vo.Publisher" alias="Publisher" />
 		<typeAlias type="cj.project.seogaandbook.vo.Question" alias="Question" />
-		<typeAlias type="cj.project.seogaandbook.vo.ReadingHistory" alias="ReadingHistory" />
 		<typeAlias type="cj.project.seogaandbook.vo.Reply" alias="Reply" />
 		<typeAlias type="cj.project.seogaandbook.vo.Review" alias="Review" />
 		<typeAlias type="cj.project.seogaandbook.vo.ReviewBoard" alias="ReviewBoard" />

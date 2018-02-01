@@ -55,14 +55,17 @@
 					</div>
 				</c:forEach>
 			</div>
-	
-			<hr>
-	
-			<footer>
-				<p>&copy; 서가 앤 북 2018</p>
-			</footer>
+			
 		</div>
 		
+		<div class="mastfoot">
+				<p>
+					Constructed by 
+					<a href="https://github.com/chunglee-test/SeogaAndBook">Chungjung Lee</a><br>
+					Cover template for <a href="http://getbootstrap.com">Bootstrap</a>,
+					by <a href="https://twitter.com/mdo">@mdo</a>.
+				</p>
+		</div>
 		
 		<!-- Include all compiled plugins (below), or include individual files as needed -->
 		<script src="<c:url value='/resources/bootstrap/js/bootstrap.min.js'/>"></script>

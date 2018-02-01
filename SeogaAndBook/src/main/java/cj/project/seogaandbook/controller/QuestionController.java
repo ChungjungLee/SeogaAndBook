@@ -159,6 +159,9 @@ public class QuestionController {
 		Question question = questionService.getQuestionByNum(questionNum);
 		ArrayList<Answer> answers = answerService.getAllAnswers(questionNum);
 		
+		questionService.updateView(questionNum);
+		question.setViews(question.getViews() + 1);
+		
 		model.addAttribute("question", question);
 		model.addAttribute("answers", answers);
 		return "questionPages/questionRead";

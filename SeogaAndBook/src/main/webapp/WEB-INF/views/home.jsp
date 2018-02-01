@@ -35,46 +35,56 @@
 			<jsp:include page="commonPages/topBanner.jsp" />
 		</header>
 		
-		
-		<!-- Main jumbotron for a primary marketing message or call to action -->
-		<!-- <div class="jumbotron ">
-			<div class="container">
-				
-				<p>This is a template for a simple marketing or informational
-					website. It includes a large callout called a jumbotron and three
-					supporting pieces of content. Use it as a starting point to create
-					something more unique.</p>
-				<p>
-					<a class="btn btn-primary btn-lg" href="#" role="button">
-						Learn more &raquo;</a>
-				</p>
-			</div>
-		</div> -->
-		
-		<div class="container">
-			<!-- Example row of columns -->
+		<div class="container top-container">
+			<h1>서평</h1>
 			<div class="row">
-				<div class="col-sm-3">
-					<h2>Heading</h2>
-					<p>Donec id elit non mi porta gravida at eget metus. Fusce
-						dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
-						ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
-						magna mollis euismod. Donec sed odio dui.</p>
-					<p>
-						<a class="btn btn-default" href="#" role="button">View details
-							&raquo;</a>
-					</p>
-				</div>
-				
+				<c:forEach var="review" items="${reviews}">
+					<div class="col-sm-3">
+						<h3>${review.title }</h3>
+						<p>
+							${review.content}
+						</p>
+					</div>
+				</c:forEach>
 			</div>
 			
 			<hr>
 			
-			<footer>
-				<p>&copy; 서가 앤 북 2018</p>
-			</footer>
+			<h1>책</h1>
+			<div class="row">
+				<c:forEach var="book" items="${books}">
+					<div class="col-sm-3">
+						<h3>${book.title}</h3>
+						<p>
+							${book.introduction}
+						</p>
+					</div>
+				</c:forEach>
+			</div>
+			
+			<hr>
+			
+			<h1>질문</h1>
+			<div class="row">
+				<c:forEach var="question" items="${questions}">
+					<div class="col-sm-3">
+						<h3>${question.title}</h3>
+						<p>
+							${question.content}
+						</p>
+					</div>
+				</c:forEach>
+			</div>
 		</div>
 		
+		<div class="mastfoot">
+			<p>
+				Constructed by 
+				<a href="https://github.com/chunglee-test/SeogaAndBook">Chungjung Lee</a><br>
+				Cover template for <a href="http://getbootstrap.com">Bootstrap</a>,
+				by <a href="https://twitter.com/mdo">@mdo</a>.
+			</p>
+		</div>
 		
 		
 		<!-- Include all compiled plugins (below), or include individual files as needed -->

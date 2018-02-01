@@ -18,11 +18,11 @@ public interface QuestionMapper {
 	
 	int delete(int questionNum);
 	
-	int updateView(int questionNum);
-	
 	ArrayList<Question> searchList(RowBounds rb, HashMap<String, Object> map);
 	
 	ArrayList<Question> searchListOld(RowBounds rb, HashMap<String, Object> map);
 	
 	int searchListCount(HashMap<String, Object> map);
+	
+	int updateView(int questionNum);
 }

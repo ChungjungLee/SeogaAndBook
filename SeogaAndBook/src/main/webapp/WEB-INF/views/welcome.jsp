@@ -42,7 +42,6 @@
 							<nav>
 								<ul class="nav masthead-nav">
 									<li class="active"><a href="home">메인으로</a></li>
-									<li><a href="#">서가 앤 북이란?</a></li>
 									<li><a href="member/join">회원 가입</a></li>
 								</ul>
 							</nav>

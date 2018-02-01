@@ -91,6 +91,19 @@ public class ReviewService {
 			return false;
 		}
 	}
+	
+	/**
+	 * 조회수 증가
+	 * @param questionNum
+	 * @return
+	 */
+	public boolean updateView(int reviewNum) {
+		if (reviewDAO.updateView(reviewNum) == 1) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 }
 
 

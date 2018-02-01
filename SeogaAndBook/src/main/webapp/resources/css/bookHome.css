@@ -3,6 +3,8 @@
  * Globals
  * from http://bootstrapk.com/examples/cover/cover.css
  */
+ 
+ 
 
 /* Links */
 a, a:focus, a:hover {
@@ -156,7 +158,12 @@ body {
 }
 
 @media ( min-width : 992px) {
-	.masthead, .mastfoot, .cover-container {
+	.masthead, .cover-container {
 		width: 700px;
+	}
+	.mastfoot {
+		text-align: center;
+		position: fixed;
+		bottom: 0;
 	}
 }

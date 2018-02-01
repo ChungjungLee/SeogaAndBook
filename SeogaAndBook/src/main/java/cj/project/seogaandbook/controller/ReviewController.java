@@ -109,8 +109,10 @@ public class ReviewController {
 	public String reviewReadPage(int reviewNum, Model model) {
 		ReviewBoard review = reviewService.getReviewByNum(reviewNum);
 		
-		model.addAttribute("review", review);
+		reviewService.updateView(reviewNum);
+		review.setViews(review.getViews() + 1);
 		
+		model.addAttribute("review", review);
 		return "reviewPages/reviewRead";
 	}
 	
