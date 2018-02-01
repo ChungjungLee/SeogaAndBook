@@ -34,7 +34,6 @@ public class HomeController {
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String welcome(HttpSession session) {
-		System.out.println("called");
 		if (session.getAttribute("loginId") == null) {
 			return "welcome";
 		}

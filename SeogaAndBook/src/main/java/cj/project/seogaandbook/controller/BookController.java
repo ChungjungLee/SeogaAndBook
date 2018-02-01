@@ -51,13 +51,7 @@ public class BookController {
 			@RequestParam(value="searchOption", defaultValue="") String option,
 			@RequestParam(value="cateNum", defaultValue="") String cateNum) {
 		
-		//ArrayList<Book> books = bookService.getRecentlyAdded();
-		
 		ArrayList<Book> books = bookService.searchList(option, cateNum);
-		
-		for (Book b : books) {
-			logger.info("책 정보: {}", b);
-		}
 		
 		model.addAttribute("books", books);
 		
