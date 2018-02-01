@@ -35,7 +35,8 @@
 			<div class="site-wrapper-inner">
 				<div class="cover-container">
 					<div class="inner cover">
-						<h1 class="cover-heading">회원 가입 중 오류가 발생하였습니다.</h1>
+						<h1 class="cover-heading">회원 수정 중 오류가 발생하였습니다.</h1>
+						<a href="../home" class="btn btn-primary">돌아가기</a>
 					</div>
 					
 					<div class="mastfoot">

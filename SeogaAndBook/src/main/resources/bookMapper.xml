@@ -23,6 +23,14 @@
 			sab_books
 	</select>
 	
+	<!-- 책 정보 4개만 받아온다 -->
+	<select id="getRecentlyAdded" resultType="Book">
+		SELECT
+			*
+		FROM
+			sab_books
+	</select>
+	
 	<!-- 책 ISBN13으로 정보 가져오기 -->
 	<select id="getBookByIsbn13" parameterType="long" resultType="Book">
 		SELECT
@@ -33,6 +41,34 @@
 			isbn13 = #{value}
 	</select>
 	
+	<!-- 카테고리별로 책 가져오기 -->
+	<select id="searchList" parameterType="HashMap" resultType="Book">
+		SELECT
+			*
+		FROM
+			(SELECT
+				categoryNum
+			FROM
+				sab_categories
+			<if test="_parameter.get('cateNum') != null">
+				<choose>
+					<when test="_parameter.get('cateNum') == ''">
+						START WITH
+							parentNum IS NULL
+					</when>
+					<when test="_parameter.get('cateNum') != ''">
+						START WITH
+							categoryNum = #{cateNum}
+					</when>
+				</choose>
+			</if>
+			CONNECT BY PRIOR
+				categoryNum = parentNum
+			) c,
+			sab_books b
+		WHERE
+			c.categoryNum = b.categoryNum
+	</select>
 </mapper>
 
 

@@ -19,7 +19,7 @@
 		<link href="<c:url value='/resources/bootstrap/css/bootstrap.css'/>" rel="stylesheet">
 		
 		<!-- Custom CSS -->
-		<link href="<c:url value='/resources/css/questionUpdate.css'/>" rel="stylesheet">
+		<link href="<c:url value='/resources/css/reviewUpdate.css'/>" rel="stylesheet">
 		
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -38,27 +38,29 @@
 			<div class="site-wrapper-inner">
 				<div class="cover-container">
 					<div class="inner cover">
-						<form class="form-signin" id="question-form" data-toggle="validator">
-							<h1 class="cover-heading">질문 글 수정</h1>
+						
+						<form class="form-signin" id="review-form" data-toggle="validator">
+							<h1 class="cover-heading">서평 수정</h1>
 							
 							<div class="form-group">
-								<label for="title" class="input-label">제목</label>
-								<input type="text" class="form-control" id="title" name="title"
-									value="${question.title}">
+								<label for="title" class="input-label">서평 제목</label>
+								<input type="text" class="form-control" id="title"
+									name="title" value="${review.title}">
 							</div>
 							
 							<div class="form-group">
 								<label for="content" class="input-label">내용</label>
-								<textarea class="form-control" name="content" rows="5" id="content">${question.content}</textarea>
+								<textarea class="form-control" rows="5" id="content" name="content">${review.content}</textarea>
 							</div>
 							
 							<div class="form-group form-btns">
 								<button class="btn btn-primary" type="submit">
-									수정
+									서평 수정
 								</button>
-								<a href="read?questionNum=${question.questionNum}" class="btn btn-default">돌아가기</a>
-								<input type="hidden" id="questionNum" name="questionNum" value="${question.questionNum}">
+								<a href="read?reviewNum=${review.reviewNum}" class="btn btn-default">돌아가기</a>
+								<input type="hidden" id="reviewNum" name="reviewNum" value="${review.reviewNum}">
 							</div>
+							
 						</form>
 					</div>
 					
@@ -84,7 +86,7 @@
 		<script type="text/javascript" src="<c:url value='/resources/js/validator.js'/>"></script>
 		
 		<!-- Custom javascript -->
-		<script type="text/javascript" src="<c:url value='/resources/js/questionUpdate.js'/>"></script>
+		<script type="text/javascript" src="<c:url value='/resources/js/reviewUpdate.js'/>"></script>
 		
 	</body>
 </html>

@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 서평 정보 관리를 위한 SQL -->
+<mapper namespace="cj.project.seogaandbook.mapper.ReviewMapper">
+	
+	<!-- 서평 저장 -->
+	<insert id="enter" parameterType="Review">
+		INSERT INTO sab_reviews
+			(reviewNum, isbn13, memberNum, title, content)
+		VALUES
+			(sab_reviews_SEQ.nextval,
+			#{isbn13}, #{memberNum}, #{title}, #{content})
+	</insert>
+	
+	<!-- 서평 검색 --><!-- 책 제목 / 작성자 로 검색이 가능하다 -->
+	<select id="searchList" parameterType="HashMap" resultType="ReviewBoard">
+		SELECT
+			r.reviewNum reviewNum
+			, r.isbn13 isbn13
+			, b.title bookTitle
+			, a.name authorName
+			, p.name publisherName
+			, r.memberNum memberNum
+			, m.id memberName
+			, r.title title
+			, r.content content
+			, r.indate indate
+			, r.views views
+			, r.hits hits			
+		FROM
+			(SELECT
+				*
+			FROM
+				sab_books
+			<if test="_parameter.get('select') != null and _parameter.get('select') != ''">
+				<choose>
+					<when test="_parameter.get('select') == 'title'">
+						WHERE
+							title LIKE '%' || #{text} || '%'
+					</when>
+					<when test="_parameter.get('select') == 'book'">
+						WHERE
+							isbn13 = TO_NUMBER(#{text})
+					</when>
+				</choose>
+			</if>) b,
+			(SELECT
+				*
+			FROM
+				sab_members
+			<if test="_parameter.get('select') != null and _parameter.get('select') != '' and _parameter.get('select') == 'author'">
+				WHERE
+					id LIKE '%' || #{text} || '%'
+			</if>) m,
+			sab_reviews r,
+			sab_publishers p,
+			sab_authors a
+		WHERE
+			r.memberNum = m.memberNum
+			AND r.isbn13 = b.isbn13
+			AND b.publisherNum = p.publisherNum
+			AND b.authorNum = a.authorNum
+		ORDER BY
+			reviewNum DESC
+	</select>
+	
+	<!-- 서평 검색 결과 수 -->
+	<select id="searchListCount" parameterType="HashMap" resultType="int">
+		SELECT
+			COUNT(*)		
+		FROM
+			(SELECT
+				*
+			FROM
+				sab_books
+			<if test="_parameter.get('select') != null and _parameter.get('select') != '' and _parameter.get('select') == 'title'">
+				WHERE
+					title LIKE '%' || #{text} || '%'
+			</if>) b,
+			(SELECT
+				*
+			FROM
+				sab_members
+			<if test="_parameter.get('select') != null and _parameter.get('select') != '' and _parameter.get('select') == 'author'">
+				WHERE
+					id LIKE '%' || #{text} || '%'
+			</if>) m,
+			sab_reviews r,
+			sab_publishers p,
+			sab_authors a
+		WHERE
+			r.memberNum = m.memberNum
+			AND r.isbn13 = b.isbn13
+			AND b.publisherNum = p.publisherNum
+			AND b.authorNum = a.authorNum
+		ORDER BY
+			reviewNum DESC
+	</select>
+	
+	<!-- 모든 서평 가져오기 -->
+	<select id="getAllReviews" resultType="Review">
+		SELECT
+			*
+		FROM
+			sab_reviews
+	</select>
+	
+	<!-- 특정 서평 읽기  -->
+	<select id="getReviewByNum" parameterType="int" resultType="ReviewBoard">
+		SELECT
+			r.reviewNum reviewNum
+			, r.isbn13 isbn13
+			, b.title bookTitle
+			, a.name authorName
+			, p.name publisherName
+			, r.memberNum memberNum
+			, m.id memberName
+			, r.title title
+			, r.content content
+			, r.indate indate
+			, r.views views
+			, r.hits hits			
+		FROM
+			sab_books b,
+			sab_members m,
+			sab_reviews r,
+			sab_publishers p,
+			sab_authors a
+		WHERE
+			r.reviewNum = #{value}
+			AND r.memberNum = m.memberNum
+			AND r.isbn13 = b.isbn13
+			AND b.publisherNum = p.publisherNum
+			AND b.authorNum = a.authorNum
+	</select>
+	
+	<!-- 서평 수정 -->
+	<update id="update" parameterType="ReviewBoard">
+		UPDATE
+			sab_reviews
+		SET
+			title = #{title},
+			content = #{content}
+		WHERE
+			reviewNum = #{reviewNum}
+	</update>
+	
+	<!-- 서평 삭제 -->
+	<delete id="delete" parameterType="int">
+		DELETE FROM
+			sab_reviews
+		WHERE
+			reviewNum = #{value}
+	</delete>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

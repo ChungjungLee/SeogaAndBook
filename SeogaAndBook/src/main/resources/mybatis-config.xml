@@ -15,7 +15,7 @@
 		<typeAlias type="cj.project.seogaandbook.vo.ReadingHistory" alias="ReadingHistory" />
 		<typeAlias type="cj.project.seogaandbook.vo.Reply" alias="Reply" />
 		<typeAlias type="cj.project.seogaandbook.vo.Review" alias="Review" />
-		
+		<typeAlias type="cj.project.seogaandbook.vo.ReviewBoard" alias="ReviewBoard" />
 	</typeAliases>
 	<mappers>
 		<mapper resource="memberMapper.xml" />
@@ -25,5 +25,6 @@
 		<mapper resource="categoryMapper.xml" />
 		<mapper resource="questionMapper.xml" />
 		<mapper resource="answerMapper.xml" />
+		<mapper resource="reviewMapper.xml" />
 	</mappers>
 </configuration>

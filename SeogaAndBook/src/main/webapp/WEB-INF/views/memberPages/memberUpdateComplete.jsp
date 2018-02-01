@@ -35,14 +35,11 @@
 			<div class="site-wrapper-inner">
 				<div class="cover-container">
 					<div class="inner cover">
-						<h1 class="cover-heading">회원 가입을 축하드립니다.</h1>
+						<h1 class="cover-heading">회원 수정이 완료되었습니다.</h1>
 						
-						<a href="/" class="btn btn-lg btn-primary">
-							로그인
+						<a href="../home" class="btn btn-lg btn-primary">
+							돌아가기
 						</a>
-						
-						
-						
 					</div>
 					
 					<div class="mastfoot">

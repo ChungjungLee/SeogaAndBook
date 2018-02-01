@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import cj.project.seogaandbook.service.AuthorService;
@@ -45,7 +46,21 @@ public class BookController {
 	 * @return
 	 */
 	@RequestMapping (value = "home", method = RequestMethod.GET)
-	public String bookHomePage() {
+	public String bookHomePage(
+			Model model,
+			@RequestParam(value="searchOption", defaultValue="") String option,
+			@RequestParam(value="cateNum", defaultValue="") String cateNum) {
+		
+		//ArrayList<Book> books = bookService.getRecentlyAdded();
+		
+		ArrayList<Book> books = bookService.searchList(option, cateNum);
+		
+		for (Book b : books) {
+			logger.info("책 정보: {}", b);
+		}
+		
+		model.addAttribute("books", books);
+		
 		return "bookPages/bookHome";
 	}
 	

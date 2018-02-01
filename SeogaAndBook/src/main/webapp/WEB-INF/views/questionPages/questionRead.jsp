@@ -77,8 +77,8 @@
 								<th>
 									내용
 								</th>
-								<td>
-									<c:out value="${question.content}" />
+								<td id="content">
+									${question.content}
 								</td>
 							</tr>
 							<%-- <c:if test="${attachmentList != null && attachmentListSize != 0}">

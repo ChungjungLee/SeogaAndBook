@@ -88,6 +88,7 @@ public class QuestionController {
 		String loginId = (String) session.getAttribute("loginId");
 		
 		question.setMemberNum(memberService.getMemberInfoById(loginId).getMemberNum());
+		question.setContent(question.getContent().replace("\r\n", "<br>"));
 		
 		if (questionService.enter(question)) {
 			return "redirect:home";
@@ -101,7 +102,11 @@ public class QuestionController {
 	 * @return
 	 */
 	@RequestMapping (value = "update", method = RequestMethod.GET)
-	public String questionUpdatePage(int questionNum) {
+	public String questionUpdatePage(int questionNum, Model model) {
+		Question question = questionService.getQuestionByNum(questionNum);
+		
+		model.addAttribute("question", question);
+		
 		return "questionPages/questionUpdate";
 	}
 	
@@ -113,7 +118,6 @@ public class QuestionController {
 	 */
 	@RequestMapping (value = "update", method = RequestMethod.POST)
 	public String questionUpdate(Question question, HttpSession session) {
-		
 		if (session.getAttribute("loginId") == null) {
 			return "redirect:home";
 		}
@@ -121,8 +125,9 @@ public class QuestionController {
 		String loginId = (String) session.getAttribute("loginId");
 		
 		question.setMemberNum(memberService.getMemberInfoById(loginId).getMemberNum());
+		question.setContent(question.getContent().replace("\r\n", "<br>"));
 		
-		if (questionService.enter(question)) {
+		if (questionService.update(question)) {
 			return "redirect:home";
 		} else {
 			return "redirect:write";
@@ -177,8 +182,6 @@ public class QuestionController {
 	 */
 	@RequestMapping (value = "enterAnswer", method = RequestMethod.POST)
 	public String enterAnswer(Answer answer, HttpSession session) {
-		logger.info("답변 내용: {}", answer);
-		
 		if (session.getAttribute("loginId") == null) {
 			return "redirect:home";
 		}

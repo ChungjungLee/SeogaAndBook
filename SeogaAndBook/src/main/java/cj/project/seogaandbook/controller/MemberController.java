@@ -1,7 +1,5 @@
 package cj.project.seogaandbook.controller;
 
-import java.util.HashMap;
-
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -117,14 +115,7 @@ public class MemberController {
 	 */
 	@RequestMapping (value = "update", method = RequestMethod.GET)
 	public String updatePage(HttpSession session, Model model) {
-		if (session.getAttribute("loginId") == null) {
-			return "invalidAccess";
-		}
-		
 		String loginId = (String) session.getAttribute("loginId");
-		if (loginId == null || loginId.equals("")) {
-			return "invalidAccess";
-		}
 		
 		Member member = memberService.getMemberInfoById(loginId);
 		
@@ -139,8 +130,6 @@ public class MemberController {
 	 */
 	@RequestMapping (value = "update", method = RequestMethod.POST)
 	public String update(Member member, Model model) {
-		logger.info("수정 정보: {}", member);
-		
 		if (memberService.update(member)) {
 			return "memberPages/memberUpdateComplete";
 		} else {
@@ -157,8 +146,6 @@ public class MemberController {
 	 */
 	@RequestMapping (value = "delete", method = RequestMethod.GET)
 	public String delete(HttpSession session) {
-		logger.info("삭제 정보: {}", session.getAttribute("loginId"));
-		
 		String loginId = (String) session.getAttribute("loginId");
 		
 		session.removeAttribute("loginId");
@@ -171,22 +158,4 @@ public class MemberController {
 		
 	}
 	
-	
-	/*
-	@RequestMapping (value = "checkIdDuplicateOther", method = RequestMethod.GET)
-	@ResponseBody
-	public HashMap<String, Boolean> checkIdDuplicateOther(String id) {
-		
-		logger.info("아이디 중복 검사: {}", id);
-		
-		HashMap<String, Boolean> result = new HashMap<>();
-		
-		if (memberService.getMemberInfoById(id) == null) {
-			result.put("canUse", true);
-		} else {
-			result.put("canUse", false);
-		}
-		
-		return result;
-	}*/
 }

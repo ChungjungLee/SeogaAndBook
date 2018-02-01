@@ -1,13 +1,16 @@
 package cj.project.seogaandbook.vo;
 
 /**
- * 서평 게시글을 저장하기 위한 클래스
+ * 서평 게시판에서 서평 하나하나를 저장하는 클래스
  * @author CHUNGJUNG
  *
  */
-public class Review {
+public class ReviewBoard {
 	private int reviewNum;
 	private long isbn13;
+	private String bookTitle;
+	private String authorName;
+	private String publisherName;
 	private int memberNum;
 	private String memberName;
 	private String title;
@@ -16,12 +19,15 @@ public class Review {
 	private int views;
 	private int hits;
 	
-	public Review() {}
+	public ReviewBoard() {}
 	
-	public Review(int reviewNum, long isbn13, int memberNum, String memberName, String title, String content, String indate, int views,
-			int hits) {
+	public ReviewBoard(int reviewNum, long isbn13, String bookTitle, String authorName, String publisherName,
+			int memberNum, String memberName, String title, String content, String indate, int views, int hits) {
 		this.reviewNum = reviewNum;
 		this.isbn13 = isbn13;
+		this.bookTitle = bookTitle;
+		this.authorName = authorName;
+		this.publisherName = publisherName;
 		this.memberNum = memberNum;
 		this.memberName = memberName;
 		this.title = title;
@@ -42,6 +48,24 @@ public class Review {
 	}
 	public void setIsbn13(long isbn13) {
 		this.isbn13 = isbn13;
+	}
+	public String getBookTitle() {
+		return bookTitle;
+	}
+	public void setBookTitle(String bookTitle) {
+		this.bookTitle = bookTitle;
+	}
+	public String getAuthorName() {
+		return authorName;
+	}
+	public void setAuthorName(String authorName) {
+		this.authorName = authorName;
+	}
+	public String getPublisherName() {
+		return publisherName;
+	}
+	public void setPublisherName(String publisherName) {
+		this.publisherName = publisherName;
 	}
 	public int getMemberNum() {
 		return memberNum;
@@ -88,8 +112,10 @@ public class Review {
 	
 	@Override
 	public String toString() {
-		return "Review [reviewNum=" + reviewNum + ", isbn13=" + isbn13 + ", memberNum=" + memberNum + ", title=" + title
-				+ ", content=" + content + ", indate=" + indate + ", views=" + views + ", hits=" + hits + "]";
+		return "ReviewBoard [reviewNum=" + reviewNum + ", isbn13=" + isbn13 + ", bookTitle=" + bookTitle
+				+ ", authorName=" + authorName + ", publisherName=" + publisherName + ", memberNum=" + memberNum
+				+ ", memberName=" + memberName + ", title=" + title + ", content=" + content + ", indate=" + indate
+				+ ", views=" + views + ", hits=" + hits + "]";
 	}
 	
 }

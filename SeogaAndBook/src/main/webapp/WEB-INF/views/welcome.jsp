@@ -68,12 +68,6 @@
 								<label>(!) ${errorMsg}</label>
 							</c:if>
 							
-							<div class="checkbox">
-								<label> <input type="checkbox" value="remember-me">
-									로그인 유지
-								</label>
-							</div>
-							
 							<button class="btn btn-lg btn-primary" type="submit">
 								로그인
 							</button>

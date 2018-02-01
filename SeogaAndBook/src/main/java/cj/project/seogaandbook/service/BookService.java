@@ -36,11 +36,23 @@ public class BookService {
 	}
 	
 	/**
+	 * 최근 추가된 책 정보 4개
+	 * @return
+	 */
+	public ArrayList<Book> getRecentlyAdded() {
+		return bookDAO.getRecentlyAdded();
+	}
+	
+	/**
 	 * ISBN코드로 책 정보 가져온다
 	 * @param isbn13
 	 * @return
 	 */
 	public Book getBookByIsbn13(long isbn13) {
 		return bookDAO.getBookByIsbn13(isbn13);
+	}
+
+	public ArrayList<Book> searchList(String option, String cateNum) {
+		return bookDAO.searchList(option, cateNum);
 	}
 }

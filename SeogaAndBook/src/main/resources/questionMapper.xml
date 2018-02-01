@@ -28,13 +28,9 @@
 				*
 			FROM
 				sab_members
-			<if test="_parameter.get('select') != null and _parameter.get('select') != ''">
-				<choose>
-					<when test="_parameter.get('select') == 'author'">
-						WHERE
-							id LIKE '%' || #{text} || '%'
-					</when>
-				</choose>
+			<if test="_parameter.get('select') == 'author'">
+				WHERE
+					id LIKE '%' || #{text} || '%'
 			</if>) m,
 			(SELECT
 				*

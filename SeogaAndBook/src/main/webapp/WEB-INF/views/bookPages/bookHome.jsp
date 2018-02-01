@@ -43,50 +43,17 @@
 			</div>
 			
 			<div class="row">
-				<div class="col-sm-3">
-					<h2>Heading</h2>
-					<p>Donec id elit non mi porta gravida at eget metus. Fusce
-						dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
-						ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
-						magna mollis euismod. Donec sed odio dui.</p>
-					<p>
-						<a class="btn btn-default" href="#" role="button">View details
-							&raquo;</a>
-					</p>
-				</div>
-				<div class="col-sm-3">
-					<h2>Heading</h2>
-					<p>Donec id elit non mi porta gravida at eget metus. Fusce
-						dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
-						ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
-						magna mollis euismod. Donec sed odio dui.</p>
-					<p>
-						<a class="btn btn-default" href="#" role="button">View details
-							&raquo;</a>
-					</p>
-				</div>
-				<div class="col-sm-3">
-					<h2>Heading</h2>
-					<p>Donec id elit non mi porta gravida at eget metus. Fusce
-						dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
-						ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
-						magna mollis euismod. Donec sed odio dui.</p>
-					<p>
-						<a class="btn btn-default" href="#" role="button">View details
-							&raquo;</a>
-					</p>
-				</div>
-				<div class="col-sm-3">
-					<h2>Heading</h2>
-					<p>Donec id elit non mi porta gravida at eget metus. Fusce
-						dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
-						ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
-						magna mollis euismod. Donec sed odio dui.</p>
-					<p>
-						<a class="btn btn-default" href="#" role="button">View details
-							&raquo;</a>
-					</p>
-				</div>
+				<c:forEach var="book" items="${books}">
+					<div class="col-sm-3">
+						<h3>${book.title}</h3>
+						<p>${book.introduction}</p>
+						<p>
+							<a class="btn btn-default" href="../review/home?searchOption=book&searchText=${book.isbn13}" role="button">
+								서평 모아보기&raquo;
+							</a>
+						</p>
+					</div>
+				</c:forEach>
 			</div>
 	
 			<hr>

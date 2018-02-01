@@ -27,6 +27,28 @@
 	<!-- Interceptor -->
 	<!-- <beans:bean id="loginInterceptor" class="global.sesoc.web8.interceptor.LoginInterceptor" /> -->
 	
+	<beans:bean id="loginInterceptor" class="cj.project.seogaandbook.interceptor.LoginInterceptor" />
+	
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/member/update"/>
+			<mvc:mapping path="/member/delete"/>
+			<mvc:mapping path="/author/**"/>
+			<mvc:mapping path="/book/enter"/>
+			<mvc:mapping path="/publish/**"/>
+			<mvc:mapping path="/question/write"/>
+			<mvc:mapping path="/question/update"/>
+			<mvc:mapping path="/question/delete"/>
+			<mvc:mapping path="/question/enterAnswer"/>
+			<mvc:mapping path="/question/updateAnswer"/>
+			<mvc:mapping path="/question/deleteAnswer"/>
+			<mvc:mapping path="/review/write"/>
+			<mvc:mapping path="/review/update"/>
+			<mvc:mapping path="/review/delete"/>
+			
+			<beans:ref bean="loginInterceptor" />
+		</mvc:interceptor>
+	</mvc:interceptors>
 	<!-- 
 	<mvc:interceptors>
 		<mvc:interceptor>
